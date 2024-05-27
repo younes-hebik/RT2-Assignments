@@ -1,0 +1,124 @@
+\hypertarget{speed__node_8cpp}{}\doxysection{speed\+\_\+node.\+cpp File Reference}
+\label{speed__node_8cpp}\index{speed\_node.cpp@{speed\_node.cpp}}
+
+
+this source code for impelemnting a server that serve the client by the average speed and the distance of the robot from the goal  
+
+
+{\ttfamily \#include $<$ros/ros.\+h$>$}\newline
+{\ttfamily \#include $<$actionlib/client/simple\+\_\+action\+\_\+client.\+h$>$}\newline
+{\ttfamily \#include $<$actionlib/client/terminal\+\_\+state.\+h$>$}\newline
+{\ttfamily \#include $<$assignment\+\_\+2\+\_\+2023/\+Planning\+Action.\+h$>$}\newline
+{\ttfamily \#include $<$assignment\+\_\+2\+\_\+2023/\+Custom.\+h$>$}\newline
+{\ttfamily \#include $<$assignment\+\_\+2\+\_\+2023/\+Csrv.\+h$>$}\newline
+{\ttfamily \#include $<$assignment\+\_\+2\+\_\+2023/\+Avrg.\+h$>$}\newline
+{\ttfamily \#include $<$geometry\+\_\+msgs/\+Point.\+h$>$}\newline
+{\ttfamily \#include $<$nav\+\_\+msgs/\+Odometry.\+h$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+Include dependency graph for speed\+\_\+node.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{speed__node_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{speed__node_8cpp_a72ec89e77167cbb5e51ca26c5a2799b5}{chatter\+Callback4}} (const nav\+\_\+msgs\+::\+Odometry\+::\+Const\+Ptr \&od1)
+\item 
+void \mbox{\hyperlink{speed__node_8cpp_a47d6f06de6feedce038424f4e3485bbb}{chatter\+Callback5}} (const assignment\+\_\+2\+\_\+2023\+::\+Planning\+Action\+Goal\+::\+Const\+Ptr \&goal1)
+\item 
+bool \mbox{\hyperlink{speed__node_8cpp_a427fad646e02009f7c4a4ee0a4086209}{my\+\_\+random}} (assignment\+\_\+2\+\_\+2023\+::\+Avrg\+::\+Request \&req, assignment\+\_\+2\+\_\+2023\+::\+Avrg\+::\+Response \&res)
+\item 
+\mbox{\Hypertarget{speed__node_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{speed__node_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+int {\bfseries main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{speed__node_8cpp_a7e4db3f7c2dea6dbf8df40341f57afd7}\label{speed__node_8cpp_a7e4db3f7c2dea6dbf8df40341f57afd7}} 
+float \mbox{\hyperlink{speed__node_8cpp_a7e4db3f7c2dea6dbf8df40341f57afd7}{dis\+\_\+x}}
+\begin{DoxyCompactList}\small\item\em the position of the robot on x axis \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{speed__node_8cpp_af80c563a75376d23a6f645ad4d0a143b}\label{speed__node_8cpp_af80c563a75376d23a6f645ad4d0a143b}} 
+float \mbox{\hyperlink{speed__node_8cpp_af80c563a75376d23a6f645ad4d0a143b}{dis\+\_\+y}}
+\begin{DoxyCompactList}\small\item\em the position of the robot on y axis \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{speed__node_8cpp_abdcde452116573a9270f38cf18b92d4b}\label{speed__node_8cpp_abdcde452116573a9270f38cf18b92d4b}} 
+float \mbox{\hyperlink{speed__node_8cpp_abdcde452116573a9270f38cf18b92d4b}{speed\+\_\+x}}
+\begin{DoxyCompactList}\small\item\em the velocity of the robot on x axis \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{speed__node_8cpp_af3722ee992edcbdb236c16027445f5e3}\label{speed__node_8cpp_af3722ee992edcbdb236c16027445f5e3}} 
+float \mbox{\hyperlink{speed__node_8cpp_af3722ee992edcbdb236c16027445f5e3}{speed\+\_\+y}}
+\begin{DoxyCompactList}\small\item\em the velocity of the robot on y axis \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{speed__node_8cpp_a7a6d95fba5f9ddbcac17f85025da5a45}\label{speed__node_8cpp_a7a6d95fba5f9ddbcac17f85025da5a45}} 
+float \mbox{\hyperlink{speed__node_8cpp_a7a6d95fba5f9ddbcac17f85025da5a45}{final\+\_\+x}}
+\begin{DoxyCompactList}\small\item\em the goal position on x \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{speed__node_8cpp_a24d3e1642322e0a206cf1becf43087fd}\label{speed__node_8cpp_a24d3e1642322e0a206cf1becf43087fd}} 
+float \mbox{\hyperlink{speed__node_8cpp_a24d3e1642322e0a206cf1becf43087fd}{final\+\_\+y}}
+\begin{DoxyCompactList}\small\item\em the goal position on y \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{speed__node_8cpp_a9eae6c1f38db98ab568f3ed3771a969d}\label{speed__node_8cpp_a9eae6c1f38db98ab568f3ed3771a969d}} 
+float {\bfseries dx}
+\item 
+\mbox{\Hypertarget{speed__node_8cpp_a8f461b6142ce8725218813abb23b06a3}\label{speed__node_8cpp_a8f461b6142ce8725218813abb23b06a3}} 
+float {\bfseries dy}
+\item 
+\mbox{\Hypertarget{speed__node_8cpp_a3fbbd8a3959e76a2bc3455d3bade52dc}\label{speed__node_8cpp_a3fbbd8a3959e76a2bc3455d3bade52dc}} 
+float \mbox{\hyperlink{speed__node_8cpp_a3fbbd8a3959e76a2bc3455d3bade52dc}{d}}
+\begin{DoxyCompactList}\small\item\em the distance left to reach the goal \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{speed__node_8cpp_add977c0d30ca7b922e5c4c9d76a64676}\label{speed__node_8cpp_add977c0d30ca7b922e5c4c9d76a64676}} 
+float {\bfseries spd} =0.\+0
+\item 
+\mbox{\Hypertarget{speed__node_8cpp_acb559820d9ca11295b4500f179ef6392}\label{speed__node_8cpp_acb559820d9ca11295b4500f179ef6392}} 
+int {\bfseries i}
+\item 
+\mbox{\Hypertarget{speed__node_8cpp_a9d188a4fea323d88c96c21e85ca7006c}\label{speed__node_8cpp_a9d188a4fea323d88c96c21e85ca7006c}} 
+float \mbox{\hyperlink{speed__node_8cpp_a9d188a4fea323d88c96c21e85ca7006c}{spdf}}
+\begin{DoxyCompactList}\small\item\em the average speed \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+this source code for impelemnting a server that serve the client by the average speed and the distance of the robot from the goal 
+
+\begin{DoxyAuthor}{Author}
+Younes Hebik 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+03/03/2024 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{speed__node_8cpp_a72ec89e77167cbb5e51ca26c5a2799b5}\label{speed__node_8cpp_a72ec89e77167cbb5e51ca26c5a2799b5}} 
+\index{speed\_node.cpp@{speed\_node.cpp}!chatterCallback4@{chatterCallback4}}
+\index{chatterCallback4@{chatterCallback4}!speed\_node.cpp@{speed\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{chatterCallback4()}{chatterCallback4()}}
+{\footnotesize\ttfamily void chatter\+Callback4 (\begin{DoxyParamCaption}\item[{const nav\+\_\+msgs\+::\+Odometry\+::\+Const\+Ptr \&}]{od1 }\end{DoxyParamCaption})}
+
+this callback function is used to get the value of instantinous position coordinates and velocity from odom topic 
+\begin{DoxyParams}{Parameters}
+{\em od1} & defines odometry variable \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{speed__node_8cpp_a47d6f06de6feedce038424f4e3485bbb}\label{speed__node_8cpp_a47d6f06de6feedce038424f4e3485bbb}} 
+\index{speed\_node.cpp@{speed\_node.cpp}!chatterCallback5@{chatterCallback5}}
+\index{chatterCallback5@{chatterCallback5}!speed\_node.cpp@{speed\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{chatterCallback5()}{chatterCallback5()}}
+{\footnotesize\ttfamily void chatter\+Callback5 (\begin{DoxyParamCaption}\item[{const assignment\+\_\+2\+\_\+2023\+::\+Planning\+Action\+Goal\+::\+Const\+Ptr \&}]{goal1 }\end{DoxyParamCaption})}
+
+this callback function is used to get final goal position 
+\begin{DoxyParams}{Parameters}
+{\em goal} & defines Planning\+Action\+Goal variable \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{speed__node_8cpp_a427fad646e02009f7c4a4ee0a4086209}\label{speed__node_8cpp_a427fad646e02009f7c4a4ee0a4086209}} 
+\index{speed\_node.cpp@{speed\_node.cpp}!my\_random@{my\_random}}
+\index{my\_random@{my\_random}!speed\_node.cpp@{speed\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{my\_random()}{my\_random()}}
+{\footnotesize\ttfamily bool my\+\_\+random (\begin{DoxyParamCaption}\item[{assignment\+\_\+2\+\_\+2023\+::\+Avrg\+::\+Request \&}]{req,  }\item[{assignment\+\_\+2\+\_\+2023\+::\+Avrg\+::\+Response \&}]{res }\end{DoxyParamCaption})}
+
+this callback function is called by the action client to publish the value of avrg speed and distance from the goal 
+\begin{DoxyParams}{Parameters}
+{\em res} & defines the response of custom service message that holds the average speed and distance of the robot to reach the goal \\
+\hline
+\end{DoxyParams}

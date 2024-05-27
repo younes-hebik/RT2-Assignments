@@ -1,0 +1,84 @@
+\hypertarget{last__target_8cpp}{}\doxysection{last\+\_\+target.\+cpp File Reference}
+\label{last__target_8cpp}\index{last\_target.cpp@{last\_target.cpp}}
+
+
+this source code for impelemnting action client to let the user to set new target or cancel it, let user know if target has been reached and publishes robot position and velocity  
+
+
+{\ttfamily \#include $<$ros/ros.\+h$>$}\newline
+{\ttfamily \#include $<$actionlib/client/simple\+\_\+action\+\_\+client.\+h$>$}\newline
+{\ttfamily \#include $<$actionlib/client/terminal\+\_\+state.\+h$>$}\newline
+{\ttfamily \#include $<$assignment\+\_\+2\+\_\+2023/\+Planning\+Action.\+h$>$}\newline
+{\ttfamily \#include $<$assignment\+\_\+2\+\_\+2023/\+Custom.\+h$>$}\newline
+{\ttfamily \#include $<$assignment\+\_\+2\+\_\+2023/\+Csrv.\+h$>$}\newline
+{\ttfamily \#include $<$geometry\+\_\+msgs/\+Point.\+h$>$}\newline
+{\ttfamily \#include $<$nav\+\_\+msgs/\+Odometry.\+h$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+Include dependency graph for last\+\_\+target.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{last__target_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{last__target_8cpp_a08a1a7f1d679d4f2bbb33eba9f1efc00}{chatter\+Callback3}} (const assignment\+\_\+2\+\_\+2023\+::\+Planning\+Action\+Goal\+::\+Const\+Ptr \&goal)
+\item 
+bool \mbox{\hyperlink{last__target_8cpp_ab32686e5c5410dbde984fdc6c64c1e9d}{my\+\_\+random}} (assignment\+\_\+2\+\_\+2023\+::\+Csrv\+::\+Request \&req, assignment\+\_\+2\+\_\+2023\+::\+Csrv\+::\+Response \&res)
+\item 
+\mbox{\Hypertarget{last__target_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{last__target_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+int {\bfseries main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{last__target_8cpp_a365207e7fb07cd4db79d049a1ded2244}\label{last__target_8cpp_a365207e7fb07cd4db79d049a1ded2244}} 
+float \mbox{\hyperlink{last__target_8cpp_a365207e7fb07cd4db79d049a1ded2244}{target\+\_\+x}}
+\begin{DoxyCompactList}\small\item\em value of goal\textquotesingle{}s x coordinates \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{last__target_8cpp_a65965c691346cf996ec91c2cd057ae31}\label{last__target_8cpp_a65965c691346cf996ec91c2cd057ae31}} 
+float \mbox{\hyperlink{last__target_8cpp_a65965c691346cf996ec91c2cd057ae31}{target\+\_\+y}}
+\begin{DoxyCompactList}\small\item\em value of goal\textquotesingle{}s y coordinates \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+this source code for impelemnting action client to let the user to set new target or cancel it, let user know if target has been reached and publishes robot position and velocity 
+
+\begin{DoxyAuthor}{Author}
+Younes Hebik 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+03/03/2024 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{last__target_8cpp_a08a1a7f1d679d4f2bbb33eba9f1efc00}\label{last__target_8cpp_a08a1a7f1d679d4f2bbb33eba9f1efc00}} 
+\index{last\_target.cpp@{last\_target.cpp}!chatterCallback3@{chatterCallback3}}
+\index{chatterCallback3@{chatterCallback3}!last\_target.cpp@{last\_target.cpp}}
+\doxysubsubsection{\texorpdfstring{chatterCallback3()}{chatterCallback3()}}
+{\footnotesize\ttfamily void chatter\+Callback3 (\begin{DoxyParamCaption}\item[{const assignment\+\_\+2\+\_\+2023\+::\+Planning\+Action\+Goal\+::\+Const\+Ptr \&}]{goal }\end{DoxyParamCaption})}
+
+chatter\+Callback3 is function that is called by subscriber that subscribes to reaching goal topic of Action server 
+\begin{DoxyParams}{Parameters}
+{\em goal} & defines the position of the goal that has been seted by the user \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{last__target_8cpp_ab32686e5c5410dbde984fdc6c64c1e9d}\label{last__target_8cpp_ab32686e5c5410dbde984fdc6c64c1e9d}} 
+\index{last\_target.cpp@{last\_target.cpp}!my\_random@{my\_random}}
+\index{my\_random@{my\_random}!last\_target.cpp@{last\_target.cpp}}
+\doxysubsubsection{\texorpdfstring{my\_random()}{my\_random()}}
+{\footnotesize\ttfamily bool my\+\_\+random (\begin{DoxyParamCaption}\item[{assignment\+\_\+2\+\_\+2023\+::\+Csrv\+::\+Request \&}]{req,  }\item[{assignment\+\_\+2\+\_\+2023\+::\+Csrv\+::\+Response \&}]{res }\end{DoxyParamCaption})}
+
+my random is function that is called by action server 
+\begin{DoxyParams}{Parameters}
+{\em req} & defines the request of custom service message \\
+\hline
+{\em res} & defines the response of custom service message \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the function returns always true 
+\end{DoxyReturn}

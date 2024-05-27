@@ -1,0 +1,108 @@
+\hypertarget{_node_b_8cpp}{}\doxysection{Node\+B.\+cpp File Reference}
+\label{_node_b_8cpp}\index{NodeB.cpp@{NodeB.cpp}}
+
+
+Implementation of a R\+OS node to track the last goal target set by the user and provide it via a service.  
+
+
+{\ttfamily \#include $<$ros/ros.\+h$>$}\newline
+{\ttfamily \#include $<$actionlib/client/simple\+\_\+action\+\_\+client.\+h$>$}\newline
+{\ttfamily \#include $<$actionlib/client/terminal\+\_\+state.\+h$>$}\newline
+{\ttfamily \#include $<$assignment\+\_\+2\+\_\+2023/\+Planning\+Action.\+h$>$}\newline
+{\ttfamily \#include $<$assignment\+\_\+2\+\_\+2023/\+Custom.\+h$>$}\newline
+{\ttfamily \#include $<$assignment\+\_\+2\+\_\+2023/\+Csrv.\+h$>$}\newline
+{\ttfamily \#include $<$geometry\+\_\+msgs/\+Point.\+h$>$}\newline
+{\ttfamily \#include $<$nav\+\_\+msgs/\+Odometry.\+h$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+Include dependency graph for Node\+B.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_node_b_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_node_b_8cpp_a08a1a7f1d679d4f2bbb33eba9f1efc00}{chatter\+Callback3}} (const assignment\+\_\+2\+\_\+2023\+::\+Planning\+Action\+Goal\+::\+Const\+Ptr \&goal)
+\begin{DoxyCompactList}\small\item\em Callback function for receiving goal messages from the action server. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_node_b_8cpp_ab32686e5c5410dbde984fdc6c64c1e9d}{my\+\_\+random}} (assignment\+\_\+2\+\_\+2023\+::\+Csrv\+::\+Request \&req, assignment\+\_\+2\+\_\+2023\+::\+Csrv\+::\+Response \&res)
+\begin{DoxyCompactList}\small\item\em Service callback function to provide the last target coordinates. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_node_b_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_node_b_8cpp_a365207e7fb07cd4db79d049a1ded2244}\label{_node_b_8cpp_a365207e7fb07cd4db79d049a1ded2244}} 
+float \mbox{\hyperlink{_node_b_8cpp_a365207e7fb07cd4db79d049a1ded2244}{target\+\_\+x}}
+\begin{DoxyCompactList}\small\item\em Value of the goal\textquotesingle{}s x coordinate. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_node_b_8cpp_a65965c691346cf996ec91c2cd057ae31}\label{_node_b_8cpp_a65965c691346cf996ec91c2cd057ae31}} 
+float \mbox{\hyperlink{_node_b_8cpp_a65965c691346cf996ec91c2cd057ae31}{target\+\_\+y}}
+\begin{DoxyCompactList}\small\item\em Value of the goal\textquotesingle{}s y coordinate. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of a R\+OS node to track the last goal target set by the user and provide it via a service. 
+
+\begin{DoxyAuthor}{Author}
+Younes Hebik 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+03/03/2024
+\end{DoxyDate}
+This node subscribes to the \char`\"{}reaching\+\_\+goal/goal\char`\"{} topic to track the last target coordinates set by the user. It also provides a service to return the last target coordinates when requested. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_node_b_8cpp_a08a1a7f1d679d4f2bbb33eba9f1efc00}\label{_node_b_8cpp_a08a1a7f1d679d4f2bbb33eba9f1efc00}} 
+\index{NodeB.cpp@{NodeB.cpp}!chatterCallback3@{chatterCallback3}}
+\index{chatterCallback3@{chatterCallback3}!NodeB.cpp@{NodeB.cpp}}
+\doxysubsubsection{\texorpdfstring{chatterCallback3()}{chatterCallback3()}}
+{\footnotesize\ttfamily void chatter\+Callback3 (\begin{DoxyParamCaption}\item[{const assignment\+\_\+2\+\_\+2023\+::\+Planning\+Action\+Goal\+::\+Const\+Ptr \&}]{goal }\end{DoxyParamCaption})}
+
+
+
+Callback function for receiving goal messages from the action server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & Pointer to the goal message containing the target position.\\
+\hline
+\end{DoxyParams}
+This function is called whenever a new goal is set. It updates the target\+\_\+x and target\+\_\+y variables with the coordinates of the last goal set by the user.
+
+\begin{DoxyNote}{Note}
+Subscribed to the \char`\"{}reaching\+\_\+goal/goal\char`\"{} topic. 
+\end{DoxyNote}
+\mbox{\Hypertarget{_node_b_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{_node_b_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{NodeB.cpp@{NodeB.cpp}!main@{main}}
+\index{main@{main}!NodeB.cpp@{NodeB.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+$<$ Advertise the service to provide the last target coordinates.
+
+$<$ Subscribe to the \char`\"{}reaching\+\_\+goal/goal\char`\"{} topic to track the last goal target set by the user.\mbox{\Hypertarget{_node_b_8cpp_ab32686e5c5410dbde984fdc6c64c1e9d}\label{_node_b_8cpp_ab32686e5c5410dbde984fdc6c64c1e9d}} 
+\index{NodeB.cpp@{NodeB.cpp}!my\_random@{my\_random}}
+\index{my\_random@{my\_random}!NodeB.cpp@{NodeB.cpp}}
+\doxysubsubsection{\texorpdfstring{my\_random()}{my\_random()}}
+{\footnotesize\ttfamily bool my\+\_\+random (\begin{DoxyParamCaption}\item[{assignment\+\_\+2\+\_\+2023\+::\+Csrv\+::\+Request \&}]{req,  }\item[{assignment\+\_\+2\+\_\+2023\+::\+Csrv\+::\+Response \&}]{res }\end{DoxyParamCaption})}
+
+
+
+Service callback function to provide the last target coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em req} & Request part of the service, not used in this case. \\
+\hline
+{\em res} & Response part of the service, containing the last goal\textquotesingle{}s x and y coordinates. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Always returns true.
+\end{DoxyReturn}
+This function is called when the \char`\"{}/\+Last\+\_\+\+Target\char`\"{} service is requested. It sets the response fields goal\+\_\+x and goal\+\_\+y to the last recorded target coordinates.
+
+\begin{DoxyNote}{Note}
+Advertised as the \char`\"{}/\+Last\+\_\+\+Target\char`\"{} service. 
+\end{DoxyNote}

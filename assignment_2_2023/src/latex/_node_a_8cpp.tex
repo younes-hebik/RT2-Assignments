@@ -1,0 +1,119 @@
+\hypertarget{_node_a_8cpp}{}\doxysection{Node\+A.\+cpp File Reference}
+\label{_node_a_8cpp}\index{NodeA.cpp@{NodeA.cpp}}
+
+
+Implementation of an action client in R\+OS for setting new targets, canceling goals, and monitoring robot position and velocity.  
+
+
+{\ttfamily \#include $<$ros/ros.\+h$>$}\newline
+{\ttfamily \#include $<$actionlib/client/simple\+\_\+action\+\_\+client.\+h$>$}\newline
+{\ttfamily \#include $<$actionlib/client/terminal\+\_\+state.\+h$>$}\newline
+{\ttfamily \#include $<$assignment\+\_\+2\+\_\+2023/\+Planning\+Action.\+h$>$}\newline
+{\ttfamily \#include $<$assignment\+\_\+2\+\_\+2023/\+Custom.\+h$>$}\newline
+{\ttfamily \#include $<$geometry\+\_\+msgs/\+Point.\+h$>$}\newline
+{\ttfamily \#include $<$nav\+\_\+msgs/\+Odometry.\+h$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+Include dependency graph for Node\+A.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_node_a_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_node_a_8cpp_a1c56dd771402daed1889995ac4fdc7b8}{chatter\+Callback}} (const assignment\+\_\+2\+\_\+2023\+::\+Planning\+Action\+Feedback\+::\+Const\+Ptr \&feed)
+\begin{DoxyCompactList}\small\item\em Callback function for receiving feedback from the action server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_node_a_8cpp_a0e6278068550975b05cef8bbb0f3483f}{chatter\+Callback2}} (const nav\+\_\+msgs\+::\+Odometry\+::\+Const\+Ptr \&od)
+\begin{DoxyCompactList}\small\item\em Callback function for receiving odometry messages. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_node_a_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_node_a_8cpp_a350594df3e8f6948c8462edfd41ce086}\label{_node_a_8cpp_a350594df3e8f6948c8462edfd41ce086}} 
+ros\+::\+Publisher \mbox{\hyperlink{_node_a_8cpp_a350594df3e8f6948c8462edfd41ce086}{pub}}
+\begin{DoxyCompactList}\small\item\em Publisher for custom position and velocity messages. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_node_a_8cpp_a4234dee1a7ee9b9d2daa1e48da439a0e}\label{_node_a_8cpp_a4234dee1a7ee9b9d2daa1e48da439a0e}} 
+double \mbox{\hyperlink{_node_a_8cpp_a4234dee1a7ee9b9d2daa1e48da439a0e}{latestX}} = 0.\+0
+\begin{DoxyCompactList}\small\item\em Latest robot position on the x-\/coordinate. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_node_a_8cpp_a28595d9c0968a5d1baefe7cee314e44f}\label{_node_a_8cpp_a28595d9c0968a5d1baefe7cee314e44f}} 
+double \mbox{\hyperlink{_node_a_8cpp_a28595d9c0968a5d1baefe7cee314e44f}{latestY}} = 0.\+0
+\begin{DoxyCompactList}\small\item\em Latest robot position on the y-\/coordinate. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_node_a_8cpp_a565f287f7b2370aca4f019d143227c5f}\label{_node_a_8cpp_a565f287f7b2370aca4f019d143227c5f}} 
+string \mbox{\hyperlink{_node_a_8cpp_a565f287f7b2370aca4f019d143227c5f}{state}}
+\begin{DoxyCompactList}\small\item\em Current state of the robot. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_node_a_8cpp_a823f2e32782d90d3a3b3318a6c1225b9}\label{_node_a_8cpp_a823f2e32782d90d3a3b3318a6c1225b9}} 
+double \mbox{\hyperlink{_node_a_8cpp_a823f2e32782d90d3a3b3318a6c1225b9}{od\+\_\+x}}
+\begin{DoxyCompactList}\small\item\em X position in the odometry message. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_node_a_8cpp_a2355e8d3a4e2d4e7a624cb5aa5027c80}\label{_node_a_8cpp_a2355e8d3a4e2d4e7a624cb5aa5027c80}} 
+double \mbox{\hyperlink{_node_a_8cpp_a2355e8d3a4e2d4e7a624cb5aa5027c80}{od\+\_\+y}}
+\begin{DoxyCompactList}\small\item\em Y position in the odometry message. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_node_a_8cpp_a852a232be00fe140a36c56bee398f2df}\label{_node_a_8cpp_a852a232be00fe140a36c56bee398f2df}} 
+double \mbox{\hyperlink{_node_a_8cpp_a852a232be00fe140a36c56bee398f2df}{od\+\_\+vx}}
+\begin{DoxyCompactList}\small\item\em Velocity on the x-\/axis in the odometry message. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_node_a_8cpp_a04d82491a8b3597bac8115f612eee9e0}\label{_node_a_8cpp_a04d82491a8b3597bac8115f612eee9e0}} 
+double \mbox{\hyperlink{_node_a_8cpp_a04d82491a8b3597bac8115f612eee9e0}{od\+\_\+vy}}
+\begin{DoxyCompactList}\small\item\em Velocity on the y-\/axis in the odometry message. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_node_a_8cpp_a24d694a9a8bf73ee31fe92724886a276}\label{_node_a_8cpp_a24d694a9a8bf73ee31fe92724886a276}} 
+ros\+::\+Subscriber \mbox{\hyperlink{_node_a_8cpp_a24d694a9a8bf73ee31fe92724886a276}{sub}}
+\begin{DoxyCompactList}\small\item\em Subscriber for receiving feedback from the action server. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_node_a_8cpp_a653ccfdc13baa6bb7ef0ce8f2c10de90}\label{_node_a_8cpp_a653ccfdc13baa6bb7ef0ce8f2c10de90}} 
+ros\+::\+Subscriber \mbox{\hyperlink{_node_a_8cpp_a653ccfdc13baa6bb7ef0ce8f2c10de90}{sub2}}
+\begin{DoxyCompactList}\small\item\em Subscriber for receiving odometry messages. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of an action client in R\+OS for setting new targets, canceling goals, and monitoring robot position and velocity. 
+
+\begin{DoxyAuthor}{Author}
+Younes Hebik 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+03/03/2024
+\end{DoxyDate}
+This node, named \char`\"{}\+Node\+A\char`\"{}, is responsible for interacting with an action server to set new targets, cancel goals, and monitor the robot\textquotesingle{}s position and velocity. It subscribes to feedback and odometry topics and publishes custom messages with the robot\textquotesingle{}s position and velocityyyyy. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_node_a_8cpp_a1c56dd771402daed1889995ac4fdc7b8}\label{_node_a_8cpp_a1c56dd771402daed1889995ac4fdc7b8}} 
+\index{NodeA.cpp@{NodeA.cpp}!chatterCallback@{chatterCallback}}
+\index{chatterCallback@{chatterCallback}!NodeA.cpp@{NodeA.cpp}}
+\doxysubsubsection{\texorpdfstring{chatterCallback()}{chatterCallback()}}
+{\footnotesize\ttfamily void chatter\+Callback (\begin{DoxyParamCaption}\item[{const assignment\+\_\+2\+\_\+2023\+::\+Planning\+Action\+Feedback\+::\+Const\+Ptr \&}]{feed }\end{DoxyParamCaption})}
+
+
+
+Callback function for receiving feedback from the action server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em feed} & Feedback containing actual pose and state. This function updates the latestX, latestY, and state variables based on the received feedback. It is subscribed to the \char`\"{}reaching\+\_\+goal/feedback\char`\"{} topic. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_node_a_8cpp_a0e6278068550975b05cef8bbb0f3483f}\label{_node_a_8cpp_a0e6278068550975b05cef8bbb0f3483f}} 
+\index{NodeA.cpp@{NodeA.cpp}!chatterCallback2@{chatterCallback2}}
+\index{chatterCallback2@{chatterCallback2}!NodeA.cpp@{NodeA.cpp}}
+\doxysubsubsection{\texorpdfstring{chatterCallback2()}{chatterCallback2()}}
+{\footnotesize\ttfamily void chatter\+Callback2 (\begin{DoxyParamCaption}\item[{const nav\+\_\+msgs\+::\+Odometry\+::\+Const\+Ptr \&}]{od }\end{DoxyParamCaption})}
+
+
+
+Callback function for receiving odometry messages. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em od} & Odometry message containing position and velocity. This function updates the od\+\_\+x, od\+\_\+y, od\+\_\+vx, and od\+\_\+vy variables based on the received odometry message. Additionally, it publishes custom messages containing position and velocity information. It is subscribed to the \char`\"{}odom\char`\"{} topic and publishes to the \char`\"{}custom\+\_\+pos\+\_\+vel\char`\"{} topic. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_node_a_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{_node_a_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{NodeA.cpp@{NodeA.cpp}!main@{main}}
+\index{main@{main}!NodeA.cpp@{NodeA.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+$<$ Intialize the action client
+
+$<$ Intialize a Subscriber that subscribes to feedback and odometry topics
+
+$<$ Intialize a publisher that publishes on custom\+\_\+pos\+\_\+vel Topic
