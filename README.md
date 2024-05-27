@@ -43,7 +43,7 @@ This project includes the documentation for the first semester assignment using 
    - Execute `doxywizard` to generate the documentation.
      
 ##### Link to the documentation: 
-##### [RT1 Second Assignment Documentation](https://github.com/younes-hebik/RT2-Assignments/tree/main/Documentation)
+##### [RT1 Second Assignment Documentation](https://github.com/younes-hebik/RT2-Assignments/blob/main/assignment_2_2023/html/index.html)
 
 ## Part 2: Jupyter Notebook Assignment
 
